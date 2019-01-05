@@ -7,8 +7,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.nightonke.cocoin"
@@ -20,6 +20,12 @@ android {
 
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
+
+        // 解决“references to other resources are not supported by build-time PNG generation”的问题
+        vectorDrawables.useSupportLibrary = true
+
+        // 解决“Annotation processors must be explicitly declared now”的问题
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -30,106 +36,106 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    implementation 'com.android.support:appcompat-v7:23.0.1'
 
     // animation
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.easing:library:1.0.1@aar'
-    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.easing:library:1.0.1@aar'
+    implementation 'com.daimajia.androidanimations:library:1.1.3@aar'
 
     // ripple effect
-    compile 'com.balysv:material-ripple:1.0.2'
+    implementation 'com.balysv:material-ripple:1.0.2'
 
     // material edittext
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 
     // butterknife
-    compile 'com.jakewharton:butterknife:6.1.0'
+    implementation 'com.jakewharton:butterknife:6.1.0'
 
     // material viewpager
-    compile ('com.github.florent37:materialviewpager:1.1.2@aar'){
+    implementation ('com.github.florent37:materialviewpager:1.1.2@aar'){
         transitive = true
     }
 
     // progress-button
-    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
 
     // date range picker
-    compile 'com.wdullaer:materialdatetimepicker:2.1.1'
+    implementation 'com.wdullaer:materialdatetimepicker:2.1.1'
 
     // floating action button
-    compile 'com.melnykov:floatingactionbutton:1.3.0'
+    implementation 'com.melnykov:floatingactionbutton:1.3.0'
 
     // the viewpager shown first time to use CoCoin
-    compile "com.dev.sacot41:scviewpager:0.0.4"
+    implementation "com.dev.sacot41:scviewpager:0.0.4"
 
     // image slider
-    compile "com.android.support:support-v4:+"
-    compile 'com.squareup.picasso:picasso:2.3.2'
-    compile 'com.daimajia.slider:library:1.1.5@aar'
+    implementation "com.android.support:support-v4:+"
+    implementation 'com.squareup.picasso:picasso:2.3.2'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
 
     // expandable layout
-    compile 'com.github.aakira:expandable-layout:1.4.1@aar'
+    implementation 'com.github.aakira:expandable-layout:1.4.1@aar'
 
     // guillotine menu
-    compile 'com.balysv.materialmenu:material-menu:1.5.4'
+    implementation 'com.balysv.materialmenu:material-menu:1.5.4'
 
     // charts
-    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
 
     // snack bar
-    compile 'com.nispok:snackbar:2.11.+'
+    implementation 'com.nispok:snackbar:2.11.+'
 
     // icons
-    compile 'net.steamcrafted:materialiconlib:1.0.8'
+    implementation 'net.steamcrafted:materialiconlib:1.0.8'
 
     // toasts
-    compile 'com.github.johnpersano:supertoasts:1.3.4@aar'
+    implementation 'com.github.johnpersano:supertoasts:1.3.4@aar'
 
     // memory leak
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
 
     // swipe recyclerview
-    compile ('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.8.4@aar'){
+    implementation ('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.8.4@aar'){
         transitive=true
     }
 
     // circle image view
-    compile 'de.hdodenhof:circleimageview:2.0.0'
+    implementation 'de.hdodenhof:circleimageview:2.0.0'
 
     // search bar
-    compile 'com.miguelcatalan:materialsearchview:1.3.0'
+    implementation 'com.miguelcatalan:materialsearchview:1.3.0'
 
     // the little check and X
-    compile 'com.wnafee:vector-compat:1.0.5'
+    implementation 'com.wnafee:vector-compat:1.0.5'
 
     // fast scroller
-    compile 'xyz.danoz:recyclerviewfastscroller:0.1.3'
+    implementation 'xyz.danoz:recyclerviewfastscroller:0.1.3'
 
     // dialogs
-    compile('com.github.afollestad.material-dialogs:commons:0.8.5.1@aar') {
+    implementation('com.github.afollestad.material-dialogs:commons:0.8.5.1@aar') {
         transitive = true
     }
 
     // the radio check circle
-    compile 'com.github.rey5137:material:1.2.1'
+    implementation 'com.github.rey5137:material:1.2.1'
 
     // bmob
-    compile 'cn.bmob.android:bmob-sdk:3.4.5'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.squareup.okio:okio:1.4.0'
+    implementation 'cn.bmob.android:bmob-sdk:3.4.5'
+    implementation 'com.squareup.okhttp:okhttp:2.4.0'
+    implementation 'com.squareup.okio:okio:1.4.0'
 
     // logo
-    compile 'com.koushikdutta.ion:ion:2.+'
+    implementation 'com.koushikdutta.ion:ion:2.+'
 
     // bugly
-    compile 'com.tencent.bugly:crashreport:1.2.8'
+    implementation 'com.tencent.bugly:crashreport:1.2.8'
 
     // splash activity
-    compile ('com.github.ozodrukh:CircularReveal:1.3.1@aar') {
+    implementation ('com.github.ozodrukh:CircularReveal:1.3.1@aar') {
         transitive = true;
     }
 
